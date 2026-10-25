@@ -1,4 +1,4 @@
-node_modules/
+﻿node_modules/
 **/node_modules/
 
 .env
@@ -33,4 +33,3 @@ Thumbs.db
 backend/src/config/config.json
 
 backend/seedData.json
-frontend/src/data/seedData.json
