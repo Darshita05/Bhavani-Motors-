@@ -1,0 +1,464 @@
+/* ==========================================================================
+   GLOBAL PAGE BASE & LAYOUT STRUCTURE
+   ========================================================================== */
+.dashboard-light-theme-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  color: #334155;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 8px;
+}
+
+.add-customer-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.add-customer-button:hover {
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+.dashboard-content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem !important;
+  padding: 0 2.5rem; /* Sahi alignment ke liye padding block */
+  box-sizing: border-box;
+}
+
+.dashboard-top-split-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;              
+  width: 100%;                   
+  max-width: 100%;               
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   SECTION 1: SUMMARY MATRIX (LEFT BLOCK)
+   ========================================================================== */
+.summary-container {
+  background-color: #ffffff;
+  border: 1px solid #2f69b5;
+  border-radius: 24px;
+  padding: 32px;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.dropdown-group {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-select {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 6px 32px 6px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr; 
+  gap: 20px;           
+  align-items: stretch;
+}
+
+.metric-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  padding: 24px 24px 24px 28px; 
+  border-radius: 20px;
+  box-sizing: border-box; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 7px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.card-total::before { background: linear-gradient(to bottom, #8b5cf6, #d946ef); }
+.card-collected::before { background: linear-gradient(to bottom, #10b981, #14b8a6); }
+.card-pending::before { background: linear-gradient(to bottom, #f59e0b, #f97316); }
+.card-new::before { background: linear-gradient(to bottom, #3b82f6, #6366f1); }
+
+.card-total { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 1px solid #e9d5ff; }
+.card-collected { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1px solid #bbf7d0; }
+.card-pending { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fde68a; }
+.card-new { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; }
+
+.metric-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.metric-value { font-size: 24px; font-weight: 800; }
+
+.card-total .metric-label { color: #7c3aed; }
+.card-total .metric-value { color: #5b21b6; }
+.card-collected .metric-label { color: #059669; }
+.card-collected .metric-value { color: #065f46; }
+.card-pending .metric-label { color: #d97706; }
+.card-pending .metric-value { color: #92400e; }
+.card-new .metric-label { color: #2563eb; }
+.card-new .metric-value { color: #1e40af; }
+
+/* ==========================================================================
+   SECTION 2: MATTE DONUT INFOGRAPHIC CARDS (RIGHT BLOCK)
+   ========================================================================== */
+.infographic-main-container {
+  border: 1px solid #2f69b5 !important;
+  border-radius: 24px;
+  background-color: #ffffff;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem !important;
+  width: 100% !important; 
+  box-sizing: border-box;
+}
+
+.infographic-card-anchor {
+  text-decoration: none;
+  display: block;
+}
+
+.infographic-glass-row {
+  display: flex;
+  align-items: center;
+  height: 96px;
+  border-radius: 18px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04) !important;
+  overflow: hidden;
+}
+
+.infographic-glass-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(148, 163, 184, 0.16) !important;
+}
+
+.infographic-pill-left {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1.75rem;
+  border-radius: 18px 0 0 18px;
+}
+
+.infographic-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.15rem;
+}
+
+.infographic-metric { font-size: 1.65rem; font-weight: 800; margin: 0; }
+.infographic-circle-right { width: 110px; height: 100%; display: flex; align-items: center; justify-content: center; }
+.infographic-donut-track { width: 88px; height: 88px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+.infographic-icon-bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.infographic-core-icon { font-size: 1.25rem; }
+
+.info-theme--customers .infographic-pill-left { background: #2F4156 }
+.info-theme--customers .infographic-tag { color: #93c5fd; }
+.info-theme--customers .infographic-metric { color: #ffffff; }
+.info-theme--customers .infographic-donut-track { background: conic-gradient(#2F4156 0% 40%, #e0f2fe 40% 100%); }
+.info-theme--customers .infographic-core-icon { color: #1e3a8a; }
+
+.info-theme--vehicles .infographic-pill-left { background:#567CBD; }
+.info-theme--vehicles .infographic-tag { color: #d1fae5; }
+.info-theme--vehicles .infographic-metric { color: #ffffff; }
+.info-theme--vehicles .infographic-donut-track { background: conic-gradient(#567CBD 0% 30%, #e8f5e9 30% 100%); }
+.info-theme--vehicles .infographic-core-icon { color: #4a7559; }
+
+.info-theme--revenue .infographic-pill-left { background:#CBD9E6; border: 1px solid rgba(255, 255, 255, 0.4); border-right: none; }
+.info-theme--revenue .infographic-tag { color: #15803d; }
+.info-theme--revenue .infographic-metric { color: #166534; }
+.info-theme--revenue .infographic-donut-track { background: conic-gradient(#CBD9E6 0% 75%, #d1fae5 75% 100%); }
+.info-theme--revenue .infographic-core-icon { color: #16a34a; }
+
+/* ==========================================================================
+   CHARTS & RECENT ENTRIES STYLING WITH ENFORCED GLASS EFFECT
+   ========================================================================== */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem !important;
+  margin-top: 1rem !important;    
+  margin-bottom: 2.5rem !important;
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+}
+
+.chart-card {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid #2f69b5 !important;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04) !important;
+  box-sizing: border-box;
+}
+
+.chart-card-title { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin-bottom: 1.25rem; }
+
+.recent-customers {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid #2f69b5 !important;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04) !important;
+  box-sizing: border-box;
+}
+
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+.section-title { font-size: 0.95rem; font-weight: 700; color: #0f172a; }
+.view-all-link { font-size: 0.8rem; color: #3b82f6; text-decoration: none; font-weight: 600; }
+
+.recent-customer-section { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.customer-card-section {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #edf2f7;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.customer-initials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customer-info { flex-grow: 1; min-width: 150px; }
+.customer-name { font-size: 0.85rem; font-weight: 600; color: #334155; }
+.customer-phone { font-size: 0.75rem; color: #64748b; }
+.customer-meta { text-align: right; min-width: 120px; }
+.service-status-badge { font-size: 0.7rem; color: #15803d; background: #dcfce7; padding: 0.15rem 0.4rem; border-radius: 12px; font-weight: 600; }
+.customer-service { font-size: 0.7rem; color: #64748b; margin-top: 0.2rem; }
+
+/* ==========================================================================
+   DYNAMIC MEDIA QUERIES FOR RESPONSIVE DESIGN (iPhone, iPad, Laptops)
+   ========================================================================== */
+
+/* 1. TABLET MEDIA QUERY (Laptops aur IPads ke liye) */
+@media (max-width: 1024px) {
+  .dashboard-top-split-wrapper {
+    grid-template-columns: 1fr; /* Dono panel stack ho jayenge upar niche */
+  }
+  .charts-row {
+    grid-template-columns: 1fr; /* Line aur Bar chart upar niche scroll honge */
+  }
+}
+
+/* 2. ADVANCED MOBILE MEDIA QUERY (iPhone 14 Pro Max, XR, Pixel, etc.) */
+@media (max-width: 500px) {
+  .dashboard-header {
+    padding: 1rem 1rem 0.5rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dashboard-content-layout, .charts-row {
+    padding: 0 1rem;
+    gap: 1.5rem !important;
+  }
+
+  .add-customer-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Summary Section Reset */
+  .summary-container {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr; /* Grid 1 Column ban jayegi taaki UI clean dikhe */
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px 16px 16px 22px;
+  }
+
+  .metric-value {
+    font-size: 15px;
+  }
+
+  /* Infographic Cards Mobile Tweaks */
+  .infographic-main-container {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .infographic-glass-row {
+    height: 80px;
+  }
+
+  .infographic-pill-left {
+    padding-left: 1rem;
+  }
+
+  .infographic-metric {
+    font-size: 15px;
+  }
+
+  .infographic-circle-right {
+    width: 85px;
+  }
+
+  .infographic-donut-track {
+    width: 65px;
+    height: 65px;
+  }
+
+  .infographic-icon-bubble {
+    width: 46px;
+    height: 46px;
+  }
+
+  /* Recent Customer List Mobile view */
+  .customer-card-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .customer-meta {
+    text-align: right;
+  }
+}
+
+/* 3. EXTRA SMALL MOBILE QUERY (iPhone SE) */
+@media (max-width: 360px) {
+  .summary-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dropdown-group {
+    width: 100%;
+  }
+
+  .custom-select {
+    flex: 1;
+  }
+}

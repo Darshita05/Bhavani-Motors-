@@ -1,0 +1,266 @@
+:root {
+  --font-color: #fff;
+  --border-color: #125caf66;
+  --box-bgcolor: #125caf;
+  --dark-fontcolor: #212121;
+  --dark: #125caf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100% !important;
+  max-width: 100vw;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden !important;
+  background-color: #f5f5f5;
+}
+
+/* ==========================================================================
+   DESKTOP DEFAULT STYLES
+   ========================================================================== */
+#custom-main-header {
+  background: #fff !important;
+  border-bottom: 1px solid #125caf66 !important;
+  width: 100% !important;
+  position: relative;
+  z-index:180;
+}
+
+#navbar-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 70px !important; 
+  padding: 0 20px !important; 
+  width: 100% !important;
+}
+
+#nav-left-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important; 
+  flex: 1 !important; 
+  justify-content: flex-start !important;
+}
+
+.logo_img {
+  width: 45px !important;
+  height: auto;
+  display: block;
+}
+
+.site-title-text {
+  font-size: 22px !important; 
+  font-weight: 700;
+  white-space: nowrap;
+  background: linear-gradient(327deg, #125caf, #3a2a2c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-right-wrapper {
+  display: flex !important;
+  align-items: center !important;
+}
+
+#nav-center-menu {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important; 
+  flex: 2 !important; 
+  flex-wrap: nowrap !important;
+}
+
+#nav-center-menu a {
+  text-decoration: none !important;
+  color: #4a4a4a !important; 
+  font-size: 14px !important; 
+  font-weight: 600 !important; 
+  white-space: nowrap !important; 
+  text-transform: uppercase; 
+  padding: 8px 18px !important; 
+  border-radius: 30px !important; 
+  transition: all 0.2s ease-in-out !important;
+}
+
+#nav-center-menu a:hover,
+#nav-center-menu a.menu-active {
+  background-color: var(--dark) !important;
+  color: #ffffff !important;
+}
+
+#nav-right-profile {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important; 
+  flex: 1 !important;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
+}
+
+.profilebg {
+  width: 36px !important; 
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: var(--dark) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 600 !important;
+}
+
+.hamburger-apps {
+  display: none !important;
+}
+
+/* Base Main content box wrapper tracking spacing spacing */
+.main-content {
+  background: #f5f5f5;
+  padding: 30px 20px !important; /* Proper breathing room on desktop views */
+}
+
+/* ==========================================================================
+   TABLET ADAPTATIONS (1100px and below)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .site-title-text { font-size: 18px !important; }
+  #nav-center-menu { gap: 8px !important; }
+  #nav-center-menu a { font-size: 13px !important; padding: 6px 14px !important; }
+}
+
+/* ==========================================================================
+   ⚠️ 100% PERFECT MOBILE VIEW FIXED APPS (850px and below)
+   ========================================================================== */
+@media screen and (max-width: 850px) {
+  
+  #navbar-container {
+    height: 70px !important;
+    padding: 0 16px !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  #nav-left-logo {
+    flex: none !important;
+  }
+
+  .site-title-text {
+    font-size: 18px !important;
+  }
+
+  /* Right control stack box rules */
+  .nav-right-wrapper {
+    gap: 12px !important;
+  }
+
+  #nav-right-profile {
+    flex: none !important;
+  }
+
+  .username {
+    display: none !important; /* Hides full admin label strictly to keep row balanced */
+  }
+
+  /* Clean interactive 3-lines configuration */
+  .hamburger-apps {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 22px !important;
+    height: 16px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+
+  .hamburger-apps span {
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important;
+    background-color: var(--dark) !important;
+    border-radius: 3px !important;
+    transition: all 0.25s ease-in-out !important;
+  }
+
+  /* Smooth Transforms for Hamburgers toggles active rules */
+  .hamburger-apps.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+  }
+  .hamburger-apps.open span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .hamburger-apps.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+
+  /* ⚡ STABLE OVERHEAD DROPDOWN BOX SYSTEM */
+  #nav-center-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+    border-top: 1px solid #eef2f5 !important;
+    padding: 16px !important;
+    gap: 8px !important;
+    
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.25s ease-in-out !important;
+    z-index: 10000 !important;
+  }
+
+  #nav-center-menu.mobile-show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  #nav-center-menu a {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+  }
+
+  /* ⚠️ FIXES THE CHIPKNA/SPACE ISSUE IN DASHBOARD TITLE BELOW */
+  .main-content {
+    padding: 24px 16px !important; /* Top space enhanced perfectly to push dashboard title down */
+  }
+}
+
+/* Small device refinements */
+@media (max-width: 360px) {
+  .site-title-text { font-size: 16px !important; }
+  .logo_img { width: 36px !important; }
+}

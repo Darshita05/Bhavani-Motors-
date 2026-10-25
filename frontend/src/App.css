@@ -1,0 +1,28 @@
+:root {
+  --font-color: #fff;
+  --border-color: #125caf66;
+  --box-bgcolor: #125caf;
+  --dark-fontcolor: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100% !important;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* CONTENT CONTAINER */
+.main-content {
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: calc(100vh - 80px);
+}

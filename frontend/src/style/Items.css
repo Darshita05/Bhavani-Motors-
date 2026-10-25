@@ -1,0 +1,466 @@
+/* ==========================================================================
+   --- Global Containers & Layout ---
+   ========================================================================== */
+:root {
+    --dark: #1a202c;
+    --blue-border: #2f69b5;
+}
+
+.items-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Dashboard Header Styling --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 24px 10px 24px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    font-size: 14px;
+    color: #718096;
+    margin-top: 4px;
+}
+
+.add-item-button {
+    background-color: #1a202c !important;
+    color: white;
+    border: 1px solid #edf2f7;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-item-button:hover {
+    background-color: #ffffff !important;
+    border-color: #1a202c;
+    color: #1a202c;
+}
+
+/* ==========================================================================
+   --- Search & Filters Area ---
+   ========================================================================== */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    gap: 20px;
+    background: transparent;
+    border: 1px solid #2f69b5; 
+    border-radius: 24px;        
+    margin: 10px 24px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 2px 14px;
+    flex: 1;
+    background-color: white;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    color: #a0aec0;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #2d3748;
+    padding: 10px 0;
+    background: transparent;
+}
+
+/* ==========================================================================
+   --- Main Table Container (Desktop Mode) ---
+   ========================================================================== */
+.items-table-container {
+    padding: 24px;
+    margin: 10px 24px;
+    box-sizing: border-box;
+    border: 1px solid #2f69b5; 
+    border-radius: 24px;        
+    background: #ffffff;
+    overflow-x: auto;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.items-table th {
+    background-color: #b9c2cf; 
+    color: #4a5568;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.items-table th:first-child { border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+.items-table th:last-child { border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
+
+.items-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #1a202c;
+    border-bottom: 1px solid #edf2f7;
+    white-space: nowrap;
+}
+
+.item-details-cell {
+    white-space: normal;
+    max-width: 300px;
+    word-break: break-word;
+}
+
+.items-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Desktop Action Buttons */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    color: #1a202c;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.edit-button:hover { color: #3182ce; }
+.delete-button:hover { color: #dc2626; }
+
+.no-data {
+    text-align: center;
+    color: #718096;
+    padding: 24px !important;
+}
+
+.error-message {
+    margin: 10px 24px;
+    color: #e53e3e;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   --- Pagination System ---
+   ========================================================================== */
+.pagination-wrapper {
+    margin: 24px;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #2f69b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+.pagination-wrapper ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 6px;
+}
+
+.pagination-wrapper button,
+.pagination-wrapper li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    min-width: 38px;
+    height: 38px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568 !important;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination-wrapper button:hover:not(:disabled),
+.pagination-wrapper li a:hover {
+    background-color: #f7fafc;
+    border-color: #cbd5e0;
+    color: #1a202c !important;
+}
+
+.pagination-wrapper .active button,
+.pagination-wrapper li.active a {
+    background-color: #1a202c;
+    color: #ffffff !important;
+    border-color: #1a202c !important;
+    font-weight: 600;
+}
+
+.pagination-wrapper button:disabled {
+    background-color: #edf2f7;
+    color: #a0aec0 !important;
+    border-color: #edf2f7;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   --- Mobile Media Layer Overrides (Accordion Trigger Blocks) ---
+   ========================================================================== */
+@media (max-width: 850px) {
+    .items-table-container {
+        border: none !important;
+        padding: 0 16px !important;
+        margin: 10px 0 !important;
+        background: transparent !important;
+    }
+
+    .search-container {
+        margin: 10px 16px !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        border-radius: 14px !important;
+    }
+
+    .dashboard-header { padding: 16px; }
+    .dashboard-title { font-size: 20px; }
+
+    /* Force Table Elements to act as Accordion Cards */
+    .items-table, 
+    .items-table thead, 
+    .items-table tbody, 
+    .items-table tr, 
+    .items-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .items-table thead { display: none !important; }
+
+    .items-table tbody tr {
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .items-table tbody tr:hover,
+    .items-table tbody tr:focus-within {
+        border-color: #cbd5e0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    /* --- Accordion Row Header Setup --- */
+    .items-table td:nth-child(1) {
+        border: none;
+        padding: 16px 16px 2px 64px; 
+        font-size: 11px;
+        color: #718096;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .items-table td:nth-child(1)::before { content: "ITEM NO ("; }
+    .items-table td:nth-child(1)::after { content: ")"; }
+
+    .items-table td:nth-child(2) {
+        border: none;
+        padding: 0 16px 16px 64px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a202c;
+    }
+
+    /* --- Accordion Dropdown Content Block --- */
+    .items-table td:nth-child(3) {
+        background-color: #fafafa;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 12px 16px;
+        font-size: 14px;
+        color: #1a202c;
+        white-space: normal;
+        
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0;
+        overflow: hidden;
+        border-top: 1px solid transparent;
+        transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
+    }
+
+    .items-table td:nth-child(3)::before {
+        content: "ITEM DETAILS";
+        font-size: 12px;
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 2px;
+    }
+
+    /* --- Action Row Container --- */
+    .items-table td:nth-child(4) {
+        border: none;
+        background-color: #fafafa;
+        padding: 0 16px 16px 16px;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
+    }
+
+    /* --- Trigger Expansion States --- */
+    .items-table tbody tr:hover td:nth-child(3),
+    .items-table tbody tr:focus-within td:nth-child(3) {
+        max-height: 150px;
+        opacity: 1;
+        padding: 12px 16px;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .items-table tbody tr:hover td:nth-child(4),
+    .items-table tbody tr:focus-within td:nth-child(4) {
+        max-height: 100px;
+        opacity: 1;
+        padding: 6px 16px 16px 16px;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 6px;
+        border-top: 1px dashed #edf2f7;
+        gap: 12px;
+    }
+
+    .action-button {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eff6ff; 
+        color: #1e40af;
+    }
+
+    .action-button.delete-button {
+        background-color: #fff5f5;
+        color: #dc2626;
+    }
+
+    /* --- Custom Circle Arrow Base Design --- */
+    .items-table tbody tr::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 16px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #1a202c; /* Default Dark Circle color */
+        display: block;
+        transition: background-color 0.25s ease;
+        z-index: 1;
+    }
+
+    /* --- Sharp Chevron Icon Element --- */
+    .items-table tbody tr::after {
+        content: "";
+        position: absolute;
+        top: 29px; /* Centered accurately within the 32px circle wrapper */
+        left: 27px;
+        width: 7px;
+        height: 7px;
+        border-right: 2px solid #ffffff; /* Forms chevron shape */
+        border-bottom: 2px solid #ffffff;
+        transform: rotate(45deg); /* Points Chevron DOWN initially */
+        transition: transform 0.25s ease, top 0.25s ease;
+        z-index: 2;
+    }
+
+    /* --- Active States for Blue Circle + Upward Facing Chevron --- */
+    .items-table tbody tr:hover::before,
+    .items-table tbody tr:focus-within::before {
+        background-color:var(--dark); /* Active Blue Background */
+    }
+
+    .items-table tbody tr:hover::after,
+    .items-table tbody tr:focus-within::after {
+        transform: rotate(-135deg); /* Flips Chevron UP cleanly */
+        top: 32px; /* Small adjustments to hold structural visual alignment */
+    }
+
+    /* Mobile Compact Pagination Overrides */
+    .pagination-wrapper {
+        margin: 16px;
+        padding: 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pagination-wrapper button {
+        padding: 6px 12px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+}

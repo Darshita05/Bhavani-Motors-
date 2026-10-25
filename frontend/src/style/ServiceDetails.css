@@ -1,0 +1,761 @@
+
+.service-details-container {
+    /* max-width: 1100px; */
+    /* margin: 30px auto; */
+    border-radius: 16px;
+    /* box-shadow: 0 2px 16px rgba(0,0,0,0.07); */
+    padding: 0px 32px 24px 32px;
+    box-sizing: border-box; 
+}
+
+.servicebtn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: -15px;
+}
+
+.service-profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.service-avatar {
+    width: 75px;
+    height: 75px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-name {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.service-since {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+.add-customer-button1 {
+    background-color: white;
+    color: var(--dark);
+    border: 1px solid var(--box-bgcolor);
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%; 
+    max-width: 220px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. SERVICE CARDS & GRID LAYOUT (BOX CUT FIX)
+   ========================================================================== */
+.cd-service-info {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 4px;
+    flex: 1;
+    min-width: 260px;
+    box-sizing: border-box;
+}
+
+.cd-service-header-title {
+    color: var(--dark-fontcolor);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px; 
+}
+
+.cd-service-content {
+    color: var(--dark-fontcolor);
+    font-size: 14px;
+    font-weight: 400;
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cd-service-content-item {
+    border: 1px solid #eee;
+    padding: 16px; 
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+    overflow: hidden; 
+    width: 100%;
+}
+
+.cd-service-content-item-content {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Service Date */
+.service-date {
+    background: rgba(255, 255, 255, 0.06);
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   3. IMAGES & GALLERY SECTION
+   ========================================================================== */
+.cd-service-image-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 30px;
+    flex: 1;
+    min-width: 260px;
+    box-sizing: border-box;
+}
+
+.cd-service-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 16px;
+    margin-bottom: 1rem;
+}
+
+.cd-service-image-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cd-service-image {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cd-service-image:hover {
+    transform: scale(1.05);
+}
+
+.cd-service-image-content-item-content {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.cd-service-image-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.image-gallery {
+    margin: 20px 0;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    box-sizing: border-box;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.gallery-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.image-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.delete-image {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-image:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.delete-image svg {
+    color: #dc3545;
+    font-size: 20px;
+}
+
+.add-image {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #dee2e6;
+    transition: all 0.3s ease;
+    min-height: 140px;
+}
+
+.add-image:hover {
+    border-color: #007bff;
+}
+
+.add-image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #6c757d;
+    padding: 10px;
+    text-align: center;
+}
+
+.add-image-icon {
+    font-size: 2rem;
+    color: #6c757d;
+}
+
+.add-image-content span {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.upload-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #6c757d;
+}
+
+.upload-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--box-bgcolor);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.existing-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 10px;
+    width: 100%;
+}
+
+.existing-image-item {
+    width: 100%;
+    height: 100px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.existing-image-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.cd-service-image .camera-item {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cd-service-image .camera-item:hover {
+    background: #e9ecef;
+}
+
+.cd-service-image .cd-vehicle-camera {
+    font-size: 2.5rem;
+    color: #6c757d;
+}
+
+.cd-service-image:hover .cd-vehicle-camera {
+    color: var(--box-bgcolor);
+}
+
+.cd-service-image-item:hover .cd-image-delete {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cd-image-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    color: #dc3545;
+    font-size: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* ==========================================================================
+   4. INVOICE MODAL STYLES
+   ========================================================================== */
+.invoice-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.invoice-modal {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.invoice-header-section {
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.invoice-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.customer-section, .vehicle-section {
+    padding: 10px 24;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+.service-section {
+    padding-bottom: 20px;
+}
+
+.customer-section h3, .vehicle-section h3, .service-section h3 {
+    color: #333;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+.vehicle-info, .service-info {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 0.5rem;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.info-value {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.invoice-header h2 {
+    color: #333;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.close-invoice {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.invoice-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.print-invoice, .pdf-invoice {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    flex: 1;
+    text-align: center;
+    min-width: 100px;
+}
+
+.print-invoice {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.print-invoice:hover {
+    background-color: #45a049;
+}
+
+.pdf-invoice {
+    background-color: var(--dark);
+    color: var(--font-color);
+    border: 1px solid var(--box-bgcolor);
+}
+
+.pdf-invoice:hover {
+    background-color: var(--font-color);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+}
+
+.invoice-content {
+    font-family: Arial, sans-serif;
+}
+
+.invoice-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.invoice-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.invoice-table {
+    width: 100%;
+    margin-bottom: 2rem;
+    overflow-x: auto; 
+    display: block;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    background: #f5f5f5;
+    padding: 0.75rem;
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--dark-fontcolor);
+    min-width: 500px; 
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 0.75rem;
+    border-top: 1px solid #eee;
+    color: var(--dark-fontcolor);
+    align-items: center;
+    min-width: 500px;
+}
+
+.table-cell {
+    padding: 0.25rem;
+}
+
+.table-cell input {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-invoice-item {
+    background-color: var(--dark);
+    color: var(--font-color);
+    border: 1px solid var(--box-bgcolor);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.table-cell button.remove-btn {
+    background-color: #dc3545;
+    color: var(--font-color);
+    border: 1px solid #dc3545;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.total-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.total-label {
+    font-weight: bold;
+    margin-right: 1rem;
+    color: var(--dark-fontcolor);
+}
+
+.total-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-fontcolor);
+}
+
+/* ==========================================================================
+   5. CRITICAL MEDIA QUERIES (FOR TABLETS & MOBILE PHONES)
+   ========================================================================== */
+
+
+@media (max-width: 768px) {
+   
+    .cd-left-sidebar {
+        width: 100% ;
+        max-width: 100% ;
+        background: #1a2536 ; 
+        padding: 16px ;
+        border-radius: 12px ;
+        display: flex ;
+        flex-direction: column ;
+        gap: 16px ;
+        margin-bottom: 20px ; 
+    }
+
+    .service-profile {
+        flex-direction: row ;
+        text-align: left ;
+        align-items: center ;
+        justify-content: flex-start ;
+        gap: 12px ;
+        width: 100% ;
+        margin-bottom: 0 ;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 12px;
+    }
+
+    .service-avatar {
+        width: 50px ;
+        height: 50px ;
+        font-size: 20px ;
+    }
+
+    .service-name {
+        font-size: 18px ;
+        margin: 0 ;
+    }
+
+    .service-since {
+        font-size: 12px ;
+    }
+
+    .servicebtn-container {
+        flex-direction: row ;
+        gap: 10px ;
+        margin-top: 0 ;
+    }
+
+    .add-customer-button1, 
+    .servicebtn-container button,
+    .servicebtn-container .btn {
+        flex: 1 ; 
+        width: auto ;
+        max-width: 100% ;
+        font-size: 14px ;
+        padding: 10px 8px ;
+        justify-content: center ;
+    }
+
+    .service-date-container,
+    .cd-left-sidebar .date-section {
+        display: grid ;
+        grid-template-columns: 1fr 1fr ;
+        gap: 10px ;
+        width: 100% ;
+    }
+
+    .service-date, 
+    .cd-left-sidebar [className*="date"] {
+        background: rgba(255, 255, 255, 0.06) ; 
+        border: 1px solid rgba(255, 255, 255, 0.1) ;
+        color: #ffffff ;
+        padding: 8px 12px ;
+        border-radius: 8px ;
+        font-size: 13px ;
+        flex-direction: row ;
+        justify-content: space-between ;
+        align-items: center ;
+        box-shadow: none ;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-details-container {
+        padding: 0px 10px 16px 10px; 
+    }
+
+    .cd-service-content {
+        grid-template-columns: 1fr; 
+        gap: 1rem;
+    }
+
+    .cd-service-content-item {
+        padding: 14px; 
+    }
+
+    .cd-service-header-title {
+        font-size: 16px;
+    }
+
+    .invoice-modal {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .invoice-header-section {
+        flex-direction: column;
+    }
+
+    .vehicle-info, .service-info {
+        grid-template-columns: 1fr;
+    }
+    
+    
+    select, input {
+        font-size: 14px ;
+        padding: 0.5rem ;
+    }
+}
+
+@media print {
+    .invoice-header button,
+    .close-invoice,
+    .invoice-overlay {
+        display: none;
+    }
+    
+    .invoice-modal {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+    
+    .invoice-content {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,439 @@
+/* --- Global Dashboard Header Styling --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 24px 10px 24px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+}
+
+.add-customer-button {
+    background-color: var(--dark) ;
+    color: white;
+    border: 1px solid var(--box-bgcolor);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-customer-button:hover {
+    background-color:white ;
+    border: 1px solid var(--dark);
+    color: var(--dark);
+}
+
+.plus-icon {
+    font-size: 16px;
+}
+
+/* --- Search & Filters Area (With Your Blue Border Kept!) --- */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    gap: 20px;
+    background: transparent;
+    border: 1px solid #2f69b5; /* Keeps your old blue border */
+    border-radius: 24px;        /* Keeps your old border-radius */
+    margin: 10px 24px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 2px 14px;
+    flex: 1;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    color: #a0aec0;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #2d3748;
+    padding: 10px 0;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #a0aec0;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-select {
+    padding: 20px 2px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: white;
+    color: #4a5568;
+    font-size: 14px;
+    width: 150px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    text-align: center;
+
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* --- Main Card Layout Structure (With Your Outer Blue Border!) --- */
+.list-container {
+    padding: 24px;
+    margin: 10px 24px;
+    box-sizing: border-box;
+    border: 1px solid #2f69b5; /* Keeps your old container blue border */
+    border-radius: 24px;        /* Keeps your old outer round corners */
+}
+
+/* Grid Headers Styling (Keeps your old background and look) */
+.list-header-row {
+    display: flex;
+    padding: 12px 24px;
+    color: #4a5568;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    background-color: #b9c2cf; /* Old Header Row BG */
+    border-radius: 24px;        /* Old Header Row Rounding */
+}
+
+/* Card Row Setup */
+.customer-card-row {
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.015);
+    border: 1px solid #edf2f7;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.desktop-grid-layout {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.customer-card-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.04);
+    border-color: #e2e8f0;
+}
+
+/* Grid System Columns Width Distribution */
+.col-sr { width: 8%; display: flex; align-items: center; color:#1a202c; }
+.col-name { width: 22%; font-size: 15px; color: #1a202c; }
+.col-email { width: 25%; font-size: 14px; word-break: break-all; color:#1a202c; }
+.col-phone { width: 15%; font-size: 14px; color: #1a202c; }
+.col-address { width: 18%; font-size: 14px;  color:#1a202c; }
+.col-actions { width: 12%; font-size: 14px; color: #1a202c; }
+
+.sr-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: 600;
+    border-radius: 50%;
+    font-size: 13px;
+    border: 1px solid #edf2f7;
+}
+
+.font-semibold { font-weight: 600; }
+.text-muted { color: #718096; }
+
+/* Desktop Management Action Controls */
+.action-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover { background-color: #f7fafc; }
+.icon-btn .icon { font-size: 18px; color: black; transition: color 0.2s; }
+.icon-btn:hover .view-icon { color: #3182ce; }
+.icon-btn:hover .edit-icon { color: #4a5568; }
+.icon-btn:hover .delete-icon { color: #e53e3e; }
+
+.no-data-card {
+    background: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    color: #a0aec0;
+    border: 1px dashed #e2e8f0;
+    font-size: 15px;
+}
+
+/* --- Clean Pagination Wrapper --- */
+.pagination-wrapper-container {
+    margin: 24px;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #2f69b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+.customer-section {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hide mobile structures on desktop default screen */
+.mobile-accordion-layout {
+    display: none;
+}
+
+/* ==========================================================================
+   --- MOBILE RESPONSIVE LAYER OVERRIDES (ACCORDION TRIGGER OVER THE TOP) ---
+   ========================================================================== */
+
+@media (max-width: 850px) {
+    .desktop-only-header {
+        display: none !important;
+    }
+    .desktop-grid-layout {
+        display: none !important;
+    }
+
+    .mobile-accordion-layout {
+        display: block;
+    }
+
+    /* Outer list wrapper removes heavy layout styling rules on mobiles */
+    .list-container {
+        border: none ;
+        padding: 0 16px ;
+        margin: 10px 0 ;
+    }
+
+    .search-container {
+        margin: 10px 3px ;
+        border-radius: 14px ; /* Slightly smaller adaptive radius on small viewports */
+    }
+
+    .customer-card-row {
+        margin-bottom: 12px;
+        border-radius: 14px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        border: 1px solid #e2e8f0;
+    }
+
+    .card-expanded {
+        border-color: #cbd5e0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .mobile-card-header {
+        padding: 16px;
+        cursor: pointer;
+        background-color: #ffffff;
+        user-select: none;
+    }
+
+    .mobile-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    /* Blue dynamic arrow box toggle switch element from Image 3 */
+    .mobile-toggle-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color:var(--dark); 
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+    }
+
+    .mobile-toggle-btn.rotated {
+        transform: rotate(-180deg);
+        background-color:var(--dark);
+    }
+
+    .mobile-customer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .mobile-label {
+        font-size: 11px;
+        color: #718096;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .mobile-value-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a202c;
+    }
+
+    /* Expandable item interior area design blocks */
+    .mobile-card-body {
+        padding: 4px 16px 16px 16px;
+        background-color: #fafafa;
+        border-top: 1px solid #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .mobile-data-row {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed #edf2f7;
+    }
+
+    .mobile-data-row:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-row-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #4a5568;
+    }
+
+    .mobile-row-value {
+        font-size: 14px;
+        color: #1a202c;
+        word-break: break-all;
+    }
+
+    .mobile-actions-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 6px;
+        padding-bottom: 0px;
+    }
+
+    .mobile-action-icons {
+        display: flex;
+        gap: 12px;
+    }
+
+    /* Action Circular Buttons styling */
+    .mobile-icon-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .blue-btn { background-color: #eff6ff; color: #1e40af; }
+    .edit-btn { background-color: #f0fdf4; color: #166534; }
+    .delete-btn { background-color: #fef2f2; color: #991b1b; }
+
+    /* Search area configuration rules for mobiles setup */
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .search-box {
+        width: 100%;
+        padding: 4px 14px;
+    }
+
+    .filter-box {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .filter-select {
+        flex: 1;
+        width: 100%;
+    }
+
+    .dashboard-header {
+        padding: 0px;
+        flex-direction: row;
+    }
+
+    .dashboard-title {
+        font-size: 20px;
+    }
+
+    .add-customer-button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

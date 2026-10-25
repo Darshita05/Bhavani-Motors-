@@ -1,0 +1,329 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal { 
+    background: var(--font-color, #ffffff);
+    padding: 30px;
+    border-radius: 8px;
+    width: px;
+    max-width: 100%;
+    max-height: 90vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+/* Scroll container wrapper for the form contents */
+.modal-form-scroll {
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-bottom: 20px; /* CRITICAL FIX: Provides breathing room at the bottom so borders don't get cut off */
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+}
+
+/* Custom Scrollbar Styles for cleaner UI */
+.modal-form-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-form-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-form-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal .modal-title {
+    margin-bottom: 0.5rem;
+    color: var(--dark-fontcolor);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.modal p {
+    color: var(--dark);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #c3e6cb;
+}
+
+.success-icon {
+    color: #28a745;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.select-customer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 10px;
+}
+
+.select-customer > div {
+    flex: 1;
+}
+
+.service-cost {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-group input {
+    width: 100%;
+    height:50px;
+    border-radius:12px;
+}
+
+.customer, .license-plate, .fuel-type, .mileage, .color, .service-date, .next-due-date, .contact-number, .item, .itemdetail {
+    width: 100%;
+}
+
+.registration-no, .fuel-type {
+    flex: 1;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dark-fontcolor);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color, #d1d5db);
+    background-color: var(--font-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--dark-fontcolor);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 0 15px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+    margin-bottom: 5px;
+    
+    /* Elegant fallback to hide scrollbars while preserving text wrapping behavior */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide Webkit internal scrollbar for the textarea completely */
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 15px;
+}
+
+.bg-btn {
+    background-color: var(--dark, #000);
+    color: var(--font-color, #fff);
+    border: 1px solid var(--box-bgcolor, #000);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.bg-btn:hover:not(:disabled) {
+    background-color: white;
+    border: 1px solid var(--box-bgcolor, #000);
+    color: var(--dark, #000);
+}
+
+.border-btn {
+    background-color: var(--font-color, #fff);
+    color: var(--dark, #000);
+    border: 1px solid var(--dark, #000);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.border-btn:hover:not(:disabled) {
+    background-color: var(--dark, #000);
+    color: var(--font-color, #fff);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--dark);
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover:not(:disabled) {
+    color: var(--dark-fontcolor);
+}
+
+.service-date-row {
+    display: flex;
+    gap: 20px;
+}
+
+.service-date-field, .days-field, .due-date-field {
+    flex: 1;
+}
+
+.service-date-field label, 
+.days-field label, 
+.due-date-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.form-input {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+    .modal {
+        padding: 20px;
+    }
+    .form-group, .select-customer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:20px;
+    row-gap:6px;
+}
+
+.service-grid label{
+    display:block;
+    margin-bottom:8px;
+    min-height:22px;
+    font-size:15px;
+    font-weight:500;
+    margin-top: 8px;
+}
+
+.service-grid input,
+.service-grid select{
+    width:100%;
+    height:50px;
+    border-radius:12px;
+    padding:0 15px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+@media (max-width:768px){
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    /* Mileage full width */
+    .service-grid > div:nth-child(5){
+        grid-column:1 / -1;
+    }
+
+    /* Service Cost full width */
+    .service-grid > div:nth-child(6){
+        grid-column:1 / -1;
+    }
+
+}

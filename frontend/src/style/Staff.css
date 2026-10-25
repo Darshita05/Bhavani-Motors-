@@ -1,0 +1,486 @@
+/* =========================================================
+   STAFF PAGE STYLING - Bhavani Motors Clean & Minimal Layout
+   ========================================================= */
+
+.staff-main-section {
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+}
+
+/* Compact Header */
+.compact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 24px 8px 24px !important;
+    padding: 0 !important;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a202c;
+    letter-spacing: -0.2px;
+}
+
+.compact-btn {
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1px solid #0f172a;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+}
+
+.compact-btn:hover {
+    background-color: #ffffff;
+    color: #0f172a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
+}
+
+/* --- Search & Filter Container (Blue Border) --- */
+.compact-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 18px !important;
+    gap: 16px !important;
+    margin: 8px 24px 12px 24px !important;
+    border: 1.5px solid #2f69b5;
+    border-radius: 20px !important;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(47, 105, 181, 0.05);
+}
+
+.compact-input-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px !important;
+    padding: 3px 14px !important;
+    background-color: #f8fafc;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.compact-input-box:focus-within {
+    border-color: #2f69b5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(47, 105, 181, 0.1);
+}
+
+.search-icon {
+    color: #94a3b8;
+    margin-right: 8px;
+    font-size: 15px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13.5px;
+    color: #1e293b;
+    padding: 6px 0;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+.job-filter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.compact-select {
+    padding: 6px 14px !important;
+    font-size: 12.5px !important;
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px !important;
+    background-color: #f8fafc;
+    color: #334155;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.compact-select:hover, .compact-select:focus {
+    border-color: #2f69b5;
+    background-color: #ffffff;
+}
+
+/* --- Main Outer Card Container (Blue Border) --- */
+.compact-container {
+    padding: 16px 20px !important;
+    margin: 8px 24px !important;
+    box-sizing: border-box;
+    border: 1.5px solid #2f69b5;
+    border-radius: 20px !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(47, 105, 181, 0.04);
+}
+
+/* --- Desktop Table Header (Rounded Slate Strip) --- */
+.compact-header-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 18px !important;
+    margin-bottom: 10px !important;
+    background: linear-gradient(180deg, #c8d5e5 0%, #b8c8dc 100%);
+    border-radius: 18px !important;
+    color: #334155;
+    font-size: 11px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+/* --- Staff Individual Row Card --- */
+.compact-row {
+    background-color: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 12px !important;
+    margin-bottom: 7px !important;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compact-row:hover {
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05) !important;
+    border-color: #cbd5e1;
+    background-color: #fafcff;
+}
+
+.compact-grid {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px !important;
+}
+
+/* Serial Number Badge */
+.staff-sr-badge {
+    width: 26px !important;
+    height: 26px !important;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11.5px !important;
+    font-weight: 800;
+    color: #1e293b;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Avatar Circle */
+.staff-avatar-circle {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px !important;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(30, 41, 59, 0.2);
+}
+
+.staff-member-name {
+    font-size: 13.5px !important;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.staff-member-email {
+    font-size: 11px !important;
+    color: #64748b;
+    margin-top: 1px;
+}
+
+.staff-member-phone {
+    font-size: 10.5px !important;
+    color: #94a3b8;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Clean Designation Themes */
+.staff-clean-designation {
+    display: inline-block;
+    padding: 3px 10px !important;
+    border-radius: 16px !important;
+    font-size: 11.5px !important;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.1px;
+}
+
+.theme-mechanic {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.theme-advisor {
+    background-color: #faf5ff;
+    color: #7e22ce;
+    border: 1px solid #e9d5ff;
+}
+
+.theme-technician {
+    background-color: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.theme-electrician {
+    background-color: #ecfeff;
+    color: #0e7490;
+    border: 1px solid #a5f3fc;
+}
+
+.theme-helper {
+    background-color: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.theme-default {
+    background-color: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+/* 🚗 Assigned Vehicles (Clean Car Number + Job Card + Status) */
+.assigned-chips-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.compact-vehicle-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #2563eb;
+    border-radius: 7px;
+    padding: 4px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.compact-vehicle-chip:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    border-left-color: #1d4ed8;
+    transform: translateY(-0.5px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.chip-car-plate {
+    color: #0f172a;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.chip-divider {
+    color: #cbd5e1;
+    font-size: 11px;
+}
+
+.chip-jc-tag {
+    color: #2563eb;
+    font-weight: 700;
+    background: #eff6ff;
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    border: 1px solid #bfdbfe;
+    font-size: 11px;
+}
+
+.chip-status {
+    padding: 1.5px 7px !important;
+    font-size: 10px !important;
+    border-radius: 12px !important;
+    font-weight: 700;
+}
+
+.more-vehicles-badge-btn {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 1px solid #93c5fd;
+    color: #1d4ed8;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.1);
+}
+
+.more-vehicles-badge-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.no-car-assigned-text {
+    color: #94a3b8;
+    font-size: 12.5px;
+    font-style: italic;
+}
+
+/* Clean Status Pills */
+.clean-job-status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    border-radius: 14px;
+    font-size: 10.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-delivered {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+}
+
+.status-progress {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+/* Staff Account Status */
+.clean-status-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 14px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.clean-status-tag.active {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.clean-status-tag.active .status-live-dot {
+    background-color: #10b981;
+}
+
+.clean-status-tag.inactive {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.clean-status-tag.inactive .status-live-dot {
+    background-color: #ef4444;
+}
+
+/* Action Icon Buttons */
+.action-icon-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.action-icon-btn:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon {
+    font-size: 14px;
+}
+
+.action-icon.view {
+    color: #2563eb;
+}
+
+.action-icon.edit {
+    color: #475569;
+}
+
+.action-icon.delete {
+    color: #dc2626;
+}
+
+.action-icon-btn:hover .action-icon.view { color: #1d4ed8; }
+.action-icon-btn:hover .action-icon.edit { color: #0f172a; }
+.action-icon-btn:hover .action-icon.delete { color: #b91c1c; }
+
+/* Error Banner */
+.staff-error-banner {
+    margin: 6px 24px;
+    padding: 8px 14px;
+    background-color: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #c53030;
+    border-radius: 8px;
+    font-size: 12px;
+}

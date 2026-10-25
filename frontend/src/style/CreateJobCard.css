@@ -1,0 +1,2041 @@
+/* =========================================================
+   CREATE JOB CARD PAGE
+========================================================= */
+
+.create-job-card-page,
+.create-job-card-page *,
+.create-job-card-page *::before,
+.create-job-card-page *::after {
+  box-sizing: border-box;
+}
+
+.create-job-card-page {
+  width: 100%;
+  height: calc(100vh - 75px);
+  min-height: 620px;
+  padding: 12px 26px 14px;
+  overflow: hidden;
+  background: #f5f7fb;
+  color: #0f172a;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.create-job-header {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.create-job-header h1 {
+  margin: 3px 0 0;
+  color: #0f172a;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.create-job-header p {
+  display: none;
+}
+
+.job-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  margin: 0 0 6px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.job-back-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.job-back-button:hover {
+  color: #0874f9;
+  transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   MAIN FORM GRID
+
+   1 = Customer & Vehicle
+   2 = Customer Complaints
+   3 = Work To Be Done
+   4 = Parts / Items Used
+   5 = Delivery & Remarks
+   Summary = Right Bottom
+========================================================= */
+
+.create-job-card-page form {
+  width: 100%;
+  height: calc(100% - 70px);
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(300px, 0.72fr);
+
+  grid-template-rows:
+    108px
+    minmax(145px, 1fr)
+    minmax(150px, 1fr)
+    44px;
+
+  gap: 10px;
+}
+
+
+/* Customer & Vehicle */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(1) {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+
+/* Customer Complaints */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+
+/* Work To Be Done */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+
+/* Parts / Items */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(4) {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+
+
+/* Delivery & Remarks */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5) {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+
+/* Summary */
+
+.create-job-card-page
+form
+> .job-summary-card {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+
+/* Actions */
+
+.create-job-actions {
+  grid-column: 1 / 4;
+  grid-row: 4;
+}
+
+
+/* =========================================================
+   COMMON CARDS
+========================================================= */
+
+.job-form-card {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+
+  padding: 11px 14px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #dce5ef;
+  border-radius: 11px;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.025),
+    0 6px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.job-form-card:hover {
+  border-color: #bcd6fb;
+
+  box-shadow:
+    0 4px 18px rgba(37, 99, 235, 0.06);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.job-form-section-header {
+  min-height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 7px;
+}
+
+.job-form-section-header h2 {
+  position: relative;
+
+  margin: 0;
+
+  padding-left: 12px;
+
+  color: #0874f9;
+
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.job-form-section-header h2::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 1px;
+
+  width: 4px;
+  height: 15px;
+
+  border-radius: 10px;
+
+  background: #0874f9;
+}
+
+.job-form-section-header p {
+  display: none;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.job-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+.job-form-group {
+  min-width: 0;
+}
+
+.job-form-group label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #334155;
+
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ALL INPUTS
+========================================================= */
+
+.job-form-group input,
+.job-form-group select,
+.complaint-row input,
+.work-row input,
+.item-row input,
+.item-row select {
+  width: 100%;
+  height: 32px;
+
+  padding: 0 10px;
+
+  border: 1px solid #d7e1ec;
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.job-form-group input:focus,
+.job-form-group select:focus,
+.complaint-row input:focus,
+.work-row input:focus,
+.item-row input:focus,
+.item-row select:focus,
+.job-remarks-group textarea:focus {
+  border-color: #0874f9;
+
+  box-shadow:
+    0 0 0 2px rgba(8, 116, 249, 0.08);
+}
+
+.job-form-group select:disabled {
+  cursor: not-allowed;
+
+  background: #f8fafc;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   SELECTED CUSTOMER / VEHICLE INFO
+========================================================= */
+
+.selected-info-grid {
+  display: none;
+}
+
+
+/* =========================================================
+   PENCIL ADD BUTTON
+========================================================= */
+
+.job-pencil-button {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+
+  background: #eff6ff;
+
+  color: #0874f9;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.job-pencil-button:hover {
+  border-color: #0874f9;
+
+  background: #0874f9;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DYNAMIC ROW CONTAINER
+========================================================= */
+
+.dynamic-row-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  max-height: calc(100% - 38px);
+
+  padding-right: 2px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dynamic-row-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dynamic-row-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: #cbd5e1;
+}
+
+.dynamic-row-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* =========================================================
+   COMPLAINT ROW
+========================================================= */
+
+.complaint-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    25px
+    minmax(0, 1fr)
+    26px;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.row-number {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #eef6ff;
+
+  color: #0874f9;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLE HEADERS
+========================================================= */
+
+.job-table-header {
+  width: 100%;
+  height: 23px;
+
+  display: grid;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 5px;
+
+  padding: 0 8px;
+
+  border-radius: 5px;
+
+  background: #edf6ff;
+
+  color: #334155;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   WORK TABLE
+========================================================= */
+
+.work-table-header,
+.work-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    115px
+    26px;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+/* =========================================================
+   ITEM TABLE
+========================================================= */
+
+.item-table-header,
+.item-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    70px
+    95px
+    100px
+    26px;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.item-amount {
+  width: 100%;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 9px;
+
+  border: 1px solid #d7e1ec;
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  color: #0f172a;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DELETE ROW BUTTON
+========================================================= */
+
+.job-remove-row-button {
+  width: 26px;
+  height: 26px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #fff1f2;
+
+  color: #ef4444;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.job-remove-row-button:hover:not(:disabled) {
+  background: #ef4444;
+
+  color: #ffffff;
+}
+
+.job-remove-row-button:disabled {
+  opacity: 0.3;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   DELIVERY & REMARKS
+
+   Expected Delivery = Full Width
+   Discount + Tax = Side By Side
+========================================================= */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5)
+.job-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+
+/* First field Expected Delivery */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5)
+.job-form-group:first-child {
+  grid-column: 1 / 3;
+}
+
+
+/* Delivery inputs */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5)
+.job-form-group input {
+  height: 32px;
+}
+
+
+/* =========================================================
+   REMARKS
+========================================================= */
+
+.job-remarks-group {
+  margin-top: 8px;
+}
+
+.job-remarks-group label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #334155;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.job-remarks-group textarea {
+  width: 100%;
+
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+
+  padding: 7px 9px;
+
+  resize: none;
+
+  overflow-y: auto;
+
+  border: 1px solid #d7e1ec;
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   JOB SUMMARY
+========================================================= */
+
+.job-summary-card {
+  min-width: 0;
+  min-height: 0;
+
+  padding: 9px 13px;
+
+  overflow: hidden;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 16px rgba(37, 99, 235, 0.055);
+}
+
+.job-summary-card .job-form-section-header {
+  min-height: 22px;
+
+  margin-bottom: 1px;
+}
+
+.job-summary-row {
+  width: 100%;
+  min-height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 2px 5px;
+
+  border-bottom: 1px solid #e8edf3;
+
+  color: #475569;
+
+  font-size: 9px;
+}
+
+.job-summary-row span {
+  min-width: 0;
+}
+
+.job-summary-row strong {
+  flex-shrink: 0;
+
+  color: #0f172a;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.job-grand-total {
+  width: 100%;
+  min-height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-top: 5px;
+
+  padding: 6px 10px;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+
+  background: #eff6ff;
+}
+
+.job-grand-total span {
+  color: #0874f9;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.job-grand-total strong {
+  flex-shrink: 0;
+
+  color: #0874f9;
+
+  font-size: 19px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.create-job-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  min-width: 0;
+
+  padding: 0;
+}
+
+.job-cancel-button,
+.job-submit-button {
+  min-width: 125px;
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 18px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.job-cancel-button {
+  border: 1px solid #cbd5e1;
+
+  background: #ffffff;
+
+  color: #334155;
+}
+
+.job-cancel-button:hover {
+  border-color: #94a3b8;
+
+  background: #f8fafc;
+}
+
+.job-submit-button {
+  border: 1px solid #0874f9;
+
+  background: #0874f9;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 10px rgba(8, 116, 249, 0.18);
+}
+
+.job-submit-button:hover {
+  background: #0667dc;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(8, 116, 249, 0.25);
+}
+
+
+/* =========================================================
+   LAPTOP SCREEN
+========================================================= */
+
+@media (max-width: 1300px) {
+
+  .create-job-card-page {
+    padding: 10px 16px 12px;
+  }
+
+  .create-job-card-page form {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(275px, 0.7fr);
+  }
+
+  .job-form-card {
+    padding: 10px 12px;
+  }
+
+  .item-table-header,
+  .item-row {
+    grid-template-columns:
+      minmax(150px, 1fr)
+      55px
+      75px
+      85px
+      26px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALLER SCREENS
+   SCROLL ENABLED BECAUSE CONTENT CANNOT FIT SAFELY
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .create-job-card-page {
+    height: auto;
+    min-height: 100vh;
+
+    overflow: visible;
+  }
+
+  .create-job-header {
+    height: auto;
+
+    min-height: 65px;
+  }
+
+  .create-job-card-page form {
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job-form-card,
+  .job-summary-card {
+    min-height: 170px;
+  }
+
+  .create-job-actions {
+    min-height: 50px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .create-job-card-page {
+    padding: 12px;
+  }
+
+  .create-job-header h1 {
+    font-size: 21px;
+  }
+
+  .job-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-job-card-page
+  form
+  > .job-form-card:nth-of-type(5)
+  .job-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-job-card-page
+  form
+  > .job-form-card:nth-of-type(5)
+  .job-form-group:first-child {
+    grid-column: auto;
+  }
+
+  .item-table-header,
+  .item-row {
+    min-width: 520px;
+  }
+
+  .create-job-card-page
+  form
+  > .job-form-card:nth-of-type(4) {
+    overflow-x: auto;
+  }
+
+  .create-job-actions {
+    flex-direction: column-reverse;
+  }
+
+  .job-cancel-button,
+  .job-submit-button {
+    width: 100%;
+  }
+
+}
+/* =========================================================
+   FINAL BUTTON + GRID FIX
+========================================================= */
+
+.create-job-card-page form {
+  grid-template-rows:
+    108px
+    minmax(145px, 1fr)
+    minmax(150px, 1fr)
+    50px;
+}
+
+/* Summary ko row ke andar clean fit rakho */
+.create-job-card-page form > .job-summary-card {
+  grid-column: 3;
+  grid-row: 3;
+
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+}
+
+/* Buttons full bottom row me */
+.create-job-actions {
+  grid-column: 1 / 4 !important;
+  grid-row: 4 !important;
+
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 6px 0 0;
+  margin: 0;
+
+  position: static;
+}
+
+/* Cancel */
+.job-cancel-button {
+  width: 135px;
+  min-width: 135px;
+  height: 40px;
+
+  margin: 0;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Create */
+.job-submit-button {
+  width: 150px;
+  min-width: 150px;
+  height: 40px;
+
+  margin: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #0874f9;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  box-shadow: 0 4px 12px rgba(8, 116, 249, 0.2);
+}
+
+.job-submit-button:hover {
+  background: #0668df;
+  transform: translateY(-1px);
+}
+/* ==========================================
+   ADMIN WORK PROGRESS
+========================================== */
+
+.admin-work-table-header,
+.admin-work-row {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 2fr)
+    minmax(130px, 0.8fr)
+    minmax(120px, 0.8fr)
+    minmax(220px, 1.5fr)
+    42px;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-work-table-header {
+  padding: 0 4px 10px;
+}
+
+.admin-work-row {
+  margin-bottom: 12px;
+}
+
+.admin-work-row input {
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-work-status {
+  display: flex;
+  align-items: center;
+}
+
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 32px;
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.admin-status-badge.pending {
+  background: #fff2dc;
+  color: #b56800;
+}
+
+.admin-status-badge.in-progress {
+  background: #e5efff;
+  color: #075ed3;
+}
+
+.admin-status-badge.completed {
+  background: #dff7e5;
+  color: #16813b;
+}
+
+.admin-work-update {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 9px 11px;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  color: #334155;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+}
+
+.admin-no-update {
+  color: #94a3b8;
+}
+
+@media (max-width: 950px) {
+
+  .admin-work-table-header {
+    display: none;
+  }
+
+  .admin-work-row {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    border: 1px solid #e5eaf1;
+    border-radius: 10px;
+  }
+
+  .admin-work-row .job-remove-row-button {
+    justify-self: end;
+  }
+}
+/* ==========================================
+   ADMIN ITEMS USED
+========================================== */
+
+.admin-item-table-header,
+.admin-item-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(200px, 2fr)
+    minmax(70px, 0.5fr)
+    minmax(110px, 0.8fr)
+    minmax(120px, 0.9fr)
+    minmax(150px, 1fr);
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.admin-item-table-header {
+  padding: 0 4px 10px;
+}
+
+.admin-item-row {
+  margin-bottom: 10px;
+}
+
+.admin-item-readonly,
+.admin-item-added-by {
+  min-height: 42px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #dce3ec;
+
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  display: flex;
+
+  align-items: center;
+
+  color: #334155;
+
+  font-size: 13px;
+}
+
+.admin-item-added-by {
+  color: #1764d9;
+
+  font-weight: 600;
+}
+
+.admin-no-items {
+  padding: 25px;
+
+  border: 1px dashed #d7e0ea;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+
+  .admin-item-table-header {
+    display: none;
+  }
+
+  .admin-item-row {
+    grid-template-columns: 1fr;
+
+    padding: 14px;
+
+    border: 1px solid #e5eaf1;
+
+    border-radius: 9px;
+  }
+}
+/* =========================================================
+   FINAL ADMIN EDIT JOB CARD UI FIX
+========================================================= */
+
+/* PAGE */
+
+.create-job-card-page {
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  height: auto;
+
+  padding: 24px 40px 30px;
+
+  overflow: visible;
+
+  background: #f5f7fb;
+}
+
+
+/* HEADER */
+
+.create-job-header {
+  height: auto;
+  min-height: 65px;
+
+  margin-bottom: 12px;
+}
+
+.create-job-header h1 {
+  font-size: 26px;
+}
+
+
+/* =========================================================
+   MAIN FORM LAYOUT
+========================================================= */
+
+.create-job-card-page form {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(330px, 0.72fr);
+
+  grid-template-rows: auto;
+
+  gap: 12px;
+}
+
+
+/* CUSTOMER + VEHICLE */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(1) {
+  grid-column: 1 / 3;
+  grid-row: 1;
+
+  min-height: 115px;
+}
+
+
+/* CUSTOMER COMPLAINTS */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 2;
+
+  min-height: 245px;
+}
+
+
+/* WORK TO BE DONE */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 2;
+
+  min-height: 245px;
+}
+
+
+/* DELIVERY + REMARKS */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5) {
+  grid-column: 3;
+  grid-row: 1 / 3;
+
+  min-height: 372px;
+}
+
+
+/* PARTS / ITEMS USED */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(4) {
+  grid-column: 1 / 3;
+  grid-row: 3;
+
+  min-height: 210px;
+}
+
+
+/* JOB SUMMARY */
+
+.create-job-card-page
+form
+> .job-summary-card {
+  grid-column: 3;
+  grid-row: 3;
+
+  width: 100%;
+  height: auto;
+
+  min-height: 210px;
+}
+
+
+/* ACTION BUTTONS */
+
+.create-job-actions {
+  grid-column: 1 / 4 !important;
+  grid-row: 4 !important;
+
+  width: 100%;
+  height: auto;
+  min-height: 60px;
+
+  padding-top: 5px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.job-form-card {
+  padding: 14px 16px;
+
+  overflow: visible;
+
+  border-radius: 12px;
+}
+
+.job-form-section-header {
+  min-height: 30px;
+
+  margin-bottom: 10px;
+}
+
+.job-form-section-header h2 {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.job-form-group label {
+  margin-bottom: 6px;
+
+  font-size: 11px;
+}
+
+.job-form-group input,
+.job-form-group select,
+.complaint-row input,
+.work-row input,
+.item-row input,
+.item-row select {
+  height: 38px;
+
+  padding: 0 12px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   DYNAMIC ROWS
+========================================================= */
+
+.dynamic-row-list {
+  max-height: 180px;
+
+  gap: 8px;
+
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   CUSTOMER COMPLAINTS
+========================================================= */
+
+.complaint-row {
+  grid-template-columns:
+    28px
+    minmax(0, 1fr)
+    30px;
+
+  gap: 8px;
+}
+
+.row-number {
+  width: 28px;
+  height: 28px;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ADMIN WORK TO BE DONE
+========================================================= */
+
+.admin-work-table-header,
+.admin-work-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 1.5fr)
+    minmax(90px, 0.7fr)
+    minmax(90px, 0.8fr)
+    minmax(150px, 1.3fr)
+    30px;
+
+  gap: 8px;
+
+  align-items: center;
+}
+
+
+.admin-work-table-header {
+  min-height: 28px;
+
+  padding: 0 8px;
+
+  margin-bottom: 8px;
+
+  border-radius: 5px;
+
+  background: #edf6ff;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+.admin-work-row {
+  margin-bottom: 10px;
+}
+
+
+.admin-work-row input {
+  width: 100%;
+  min-width: 0;
+
+  height: 40px;
+
+  padding: 0 11px;
+
+  border: 1px solid #d7e1ec;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-size: 12px;
+}
+
+
+.admin-work-status {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.admin-status-badge {
+  min-height: 34px;
+
+  padding: 7px 10px;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+
+.admin-work-update {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+
+  padding: 9px 11px;
+
+  font-size: 11px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ITEMS USED
+========================================================= */
+
+.admin-item-table-header,
+.admin-item-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 2fr)
+    minmax(70px, 0.5fr)
+    minmax(100px, 0.8fr)
+    minmax(110px, 0.9fr)
+    minmax(140px, 1fr);
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+
+.admin-item-table-header {
+  min-height: 28px;
+
+  padding: 0 8px;
+
+  margin-bottom: 8px;
+
+  border-radius: 5px;
+
+  background: #edf6ff;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+.admin-item-row {
+  margin-bottom: 10px;
+}
+
+
+.admin-item-readonly,
+.admin-item-added-by {
+  width: 100%;
+  min-width: 0;
+
+  min-height: 40px;
+
+  padding: 9px 11px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   DELIVERY + REMARKS
+========================================================= */
+
+.create-job-card-page
+form
+> .job-form-card:nth-of-type(5)
+.job-form-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.job-remarks-group {
+  margin-top: 12px;
+}
+
+
+.job-remarks-group textarea {
+  height: 75px;
+  min-height: 75px;
+  max-height: 75px;
+
+  padding: 10px 11px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   JOB SUMMARY
+========================================================= */
+
+.job-summary-card {
+  padding: 12px 15px;
+}
+
+
+.job-summary-row {
+  min-height: 25px;
+
+  padding: 4px 6px;
+
+  font-size: 10px;
+}
+
+
+.job-summary-row strong {
+  font-size: 11px;
+}
+
+
+.job-grand-total {
+  min-height: 45px;
+
+  margin-top: 8px;
+
+  padding: 8px 12px;
+}
+
+
+.job-grand-total span {
+  font-size: 14px;
+}
+
+
+.job-grand-total strong {
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.job-cancel-button {
+  width: 140px;
+  min-width: 140px;
+
+  height: 42px;
+}
+
+
+.job-submit-button {
+  width: 165px;
+  min-width: 165px;
+
+  height: 42px;
+}
+
+
+/* =========================================================
+   LAPTOP RESPONSIVE
+========================================================= */
+
+@media (max-width: 1400px) {
+
+  .create-job-card-page {
+    padding:
+      20px
+      25px
+      28px;
+  }
+
+  .create-job-card-page form {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(300px, 0.7fr);
+  }
+
+  .admin-work-table-header,
+  .admin-work-row {
+    grid-template-columns:
+      minmax(130px, 1.4fr)
+      minmax(80px, 0.65fr)
+      minmax(85px, 0.75fr)
+      minmax(130px, 1.2fr)
+      28px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .create-job-card-page {
+    padding: 18px;
+  }
+
+  .create-job-card-page form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .job-form-card,
+  .job-summary-card {
+    width: 100%;
+
+    min-height: auto !important;
+  }
+
+  .admin-work-table-header,
+  .admin-item-table-header {
+    display: none;
+  }
+
+  .admin-work-row,
+  .admin-item-row {
+    grid-template-columns: 1fr;
+
+    padding: 12px;
+
+    border: 1px solid #e5eaf1;
+
+    border-radius: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .create-job-card-page {
+    padding: 14px;
+  }
+
+  .job-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-job-card-page
+  form
+  > .job-form-card:nth-of-type(5)
+  .job-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-job-card-page
+  form
+  > .job-form-card:nth-of-type(5)
+  .job-form-group:first-child {
+    grid-column: auto;
+  }
+
+  .create-job-actions {
+    flex-direction: column-reverse;
+  }
+
+  .job-cancel-button,
+  .job-submit-button {
+    width: 100%;
+  }
+
+}
+/* ==========================================
+   ADMIN JOB CARD STATUS
+========================================== */
+
+.admin-job-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-job-title-row h1 {
+  margin: 0;
+}
+
+.admin-job-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 28px;
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* Pending */
+.admin-job-status.pending {
+  background: #fff2dc;
+  color: #b56800;
+}
+
+/* In Progress */
+.admin-job-status.in-progress {
+  background: #e5efff;
+  color: #075ed3;
+}
+
+/* Completed */
+.admin-job-status.completed {
+  background: #dff7e5;
+  color: #16813b;
+}
+
+/* Delivered */
+.admin-job-status.delivered {
+  background: #e8e7ff;
+  color: #5145cd;
+}
+
+/* Cancelled */
+.admin-job-status.cancelled {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+@media (max-width: 650px) {
+  .admin-job-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+.job-delivered-button {
+  min-width: 165px;
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.job-delivered-button:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.job-delivered-button:active {
+  transform: translateY(0);
+}
+/* ================================
+   DELIVERY CONFIRMATION MODAL
+================================ */
+
+.delivery-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.delivery-modal {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+}
+
+.delivery-modal-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.delivery-modal h2 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.delivery-modal p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.delivery-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.delivery-modal-actions button {
+  min-width: 150px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delivery-modal-cancel {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.delivery-modal-cancel:hover {
+  background: #f8fafc;
+}
+
+.delivery-modal-confirm {
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid #16a34a;
+}
+
+.delivery-modal-confirm:hover {
+  background: #15803d;
+}

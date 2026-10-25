@@ -1,0 +1,316 @@
+.customer-details-container {
+    border-radius: 16px;
+    padding: 0px 15px 24px 15px;
+}
+
+/* Header container with Add Service button on the right */
+.cd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.cd-back-btn {
+    width: 90px;
+    color: var(--dark);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 8px;
+    padding: 6px 14px;
+    transition: background 0.2s;
+    border: 1px solid var(--font-color);
+}
+
+.cd-back-btn:hover {
+    background: var(--font-color);
+    border: 1px solid var(--dark);
+    color: var(--dark);
+}
+
+/* ================= VERTICAL DASHBOARD SPLIT ================= */
+.cd-vertical-layout {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    width: 100%;
+    align-items: stretch; /* Isse sidebar niche tak ek line me full-height jayega */
+}
+
+/* LEFT SIDEBAR PANEL (Full height container) */
+.cd-left-sidebar {
+    width: 260px;
+    background: #1a2332; /* Exact dark layout color code matching image */
+    border-radius: 16px;
+    padding: 28px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.cd-sidebar-profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cd-left-sidebar .cd-avatar {
+    width: 75px;
+    height: 75px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cd-left-sidebar .cd-name {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cd-left-sidebar .cd-since {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+/* White metric boxes inside Sidebar */
+.cd-left-sidebar .cd-stat {
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cd-left-sidebar .cd-stat-detail {
+    text-align: center;
+}
+
+.cd-left-sidebar .cd-stat-detail .cd-stat-title {
+    color: #1a2332;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cd-left-sidebar .cd-stat-detail .cd-stat-content {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.cd-left-sidebar .cd-stat-detail .cd-stat-vehicle {
+    color: #475569;
+    font-size: 12px;
+}
+
+.cd-stat-icon {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+}
+
+/* RIGHT CONTENT PANELS */
+.cd-right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cd-contact,
+.cd-vehicles {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    background: #ffffff;
+    width: 100%;
+}
+
+.cd-contact-title,
+.cd-vehicles-title {
+    color: #1a2332;
+    font-weight: 500;
+    margin-bottom: 14px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cd-section-icon {
+    color: #125CAF;
+    font-size: 22px;
+}
+
+.cd-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    margin-left: 4px;
+    font-size: 15px;
+} 
+
+.cd-contact-item .icon {
+    color: #ffffff;
+}
+
+.cd-vehicle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cd-vehicle-item {
+    font-size: 14px;
+    color: #1a2332;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.cd-vehicle-item:last-child {
+    border-bottom: none;
+}
+
+.vehicle-make-model {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.cd-vehicle-no {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Service History Table styling - Added explicit text visibility fixes */
+.cd-service-history {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.cd-service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cd-service-title {
+    color: #1a2332;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.cd-service-vehicle {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.brand-select select {
+    background-color:var(--dark);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cd-table-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cd-service-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* CRITICAL FIX: Explicit dark color text for table data visibility */
+.cd-service-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 500;
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cd-service-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    color: #1e293b !important; /* Forces dark gray text color over global white styling */
+}
+
+.cd-service-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Separated Pagination Box Outer View layout */
+.outer-pagination-container {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive queries */
+@media (max-width: 900px) {
+    .cd-vertical-layout {
+        flex-direction: column;
+    }
+    .cd-left-sidebar {
+        width: 100%;
+    }
+    .cd-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .cd-service-table {
+        min-width: 750px;
+    }
+}
+
