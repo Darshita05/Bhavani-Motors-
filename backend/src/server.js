@@ -65,8 +65,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   },
 });
 initSocket(io);
@@ -98,21 +99,21 @@ connectDB();
 // ============================================
 
 // Enable CORS
+const corsOptions = {
+  origin: true,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "Accept",
+    "Origin",
+  ],
+  optionsSuccessStatus: 204,
+};
 
-const allowedOrigins = [
-  "https://bhavani-motors-frontend1.vercel.app",
-  "https://bhavani-motors-frontend1-git-main-darshita-s-projects1.vercel.app",
-];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 204,
-  })
-);
+app.use(cors(corsOptions));
 
 
 // Parse JSON Body
@@ -227,3 +228,6 @@ app.use((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
+module.exports.server = server;

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'process.env': {
-      'REACT_APP_BACKEND_URL': process.env.REACT_APP_BACKEND_URL || 'https://garage-admin-panel-backend.onrender.com'
+      'REACT_APP_BACKEND_URL': process.env.REACT_APP_BACKEND_URL || 'https://bhavani-motors-backend.vercel.app'
     }
   }
 })

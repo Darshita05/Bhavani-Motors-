@@ -105,9 +105,11 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
   try {
-    const { identifier, password } = req.body;
+    const rawIdentifier =
+      req.body.identifier || req.body.email || req.body.username;
+    const { password } = req.body;
 
-    if (!identifier || !password) {
+    if (!rawIdentifier || !password) {
       return handleBadRequest(
         res,
         null,
@@ -115,7 +117,7 @@ exports.signin = async (req, res) => {
       );
     }
 
-    const cleanIdentifier = String(identifier).trim();
+    const cleanIdentifier = String(rawIdentifier).trim();
     let user;
 
     // Login using email

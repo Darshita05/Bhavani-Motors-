@@ -4,23 +4,23 @@ import { handleMockApiRequest } from "./mockApiRouter";
 const CUSTOM_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const isDev = import.meta.env.MODE === "development";
 
-// Connect to real network only if on localhost development OR if a valid custom new backend is specified (NOT the old Render backend)
-const USE_NETWORK = Boolean(
-  (CUSTOM_BACKEND_URL && !CUSTOM_BACKEND_URL.includes("garage-admin-panel-backend.onrender.com")) ||
-  isDev
-);
+const DEFAULT_PROD_BACKEND = "https://bhavani-motors-backend.vercel.app";
 
 const API_BASE_URL =
   CUSTOM_BACKEND_URL && !CUSTOM_BACKEND_URL.includes("garage-admin-panel-backend.onrender.com")
     ? CUSTOM_BACKEND_URL
-    : "http://localhost:3000";
+    : isDev
+    ? "http://localhost:5000"
+    : DEFAULT_PROD_BACKEND;
+
+const USE_NETWORK = true;
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
-  timeout: 5000,
+  timeout: 15000,
 });
 
 apiClient.interceptors.request.use((config) => {
@@ -34,7 +34,7 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && !error.config?.url?.includes("/auth/login")) {
       localStorage.removeItem("jwtToken");
     }
     return Promise.reject(error);
@@ -49,6 +49,7 @@ export const apiService = {
     try {
       return (await apiClient.get(endpoint, { params })).data;
     } catch (err) {
+      if (err.response) throw err;
       console.warn("Network fetch fallback to new local project data:", endpoint);
       return handleMockApiRequest("GET", endpoint, params);
     }
@@ -61,6 +62,7 @@ export const apiService = {
     try {
       return (await apiClient.post(endpoint, data)).data;
     } catch (err) {
+      if (err.response) throw err;
       console.warn("Network post fallback to new local project data:", endpoint);
       return handleMockApiRequest("POST", endpoint, data);
     }
@@ -73,6 +75,7 @@ export const apiService = {
     try {
       return (await apiClient.put(endpoint, data)).data;
     } catch (err) {
+      if (err.response) throw err;
       console.warn("Network put fallback to new local project data:", endpoint);
       return handleMockApiRequest("PUT", endpoint, data);
     }
@@ -85,6 +88,7 @@ export const apiService = {
     try {
       return (await apiClient.patch(endpoint, data)).data;
     } catch (err) {
+      if (err.response) throw err;
       console.warn("Network patch fallback to new local project data:", endpoint);
       return handleMockApiRequest("PATCH", endpoint, data);
     }
@@ -97,6 +101,7 @@ export const apiService = {
     try {
       return (await apiClient.delete(endpoint, config)).data;
     } catch (err) {
+      if (err.response) throw err;
       console.warn("Network delete fallback to new local project data:", endpoint);
       return handleMockApiRequest("DELETE", endpoint, config);
     }

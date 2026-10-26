@@ -7,8 +7,8 @@ const BACKEND_URL =
   CUSTOM_BACKEND_URL && !CUSTOM_BACKEND_URL.includes("garage-admin-panel-backend.onrender.com")
     ? CUSTOM_BACKEND_URL
     : isDev
-    ? "http://localhost:3000"
-    : null;
+    ? "http://localhost:5000"
+    : "https://bhavani-motors-backend.vercel.app";
 
 const socket = BACKEND_URL
   ? io(BACKEND_URL, {
