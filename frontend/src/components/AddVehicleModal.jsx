@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './Modal.css';
 import { toast } from 'react-toastify';
 import apiService from '../services/apiService';
+import { localDataStore } from '../services/localDataStore';
 
 const AddVehicleModal = ({
     onClose,
@@ -74,45 +75,32 @@ const AddVehicleModal = ({
     // ==========================================
 
     const fetchCustomers = async () => {
-
         try {
+            let response = await apiService.get('/api/customers/getall');
+            console.log('Customers API Response:', response);
 
-            const response =
-                await apiService.get(
-                    '/api/customers/getall'
-                );
+            let customerList =
+                response?.data?.customers ||
+                response?.data?.data?.customers ||
+                response?.data?.data ||
+                response?.customers ||
+                (Array.isArray(response) ? response : []);
 
-            console.log(
-                'Customers API Response:',
-                response
-            );
-
-            const customerList =
-                response.data?.customers ||
-                response.data?.data?.customers ||
-                response.data?.data ||
-                [];
-
-            if (Array.isArray(customerList)) {
-
-                setInternalCustomers(
-                    customerList
-                );
-
-            } else {
-
-                setInternalCustomers([]);
-
+            if (!customerList || customerList.length === 0) {
+                const paged = await apiService.get('/api/customers/get/pagination?page=1&limit=1000');
+                customerList = paged?.customers || paged?.data?.customers || paged?.data || [];
             }
 
+            if (Array.isArray(customerList) && customerList.length > 0) {
+                setInternalCustomers(customerList);
+            } else {
+                const localCusts = localDataStore.getCustomers();
+                setInternalCustomers(localCusts || []);
+            }
         } catch (error) {
-
-            console.error(
-                'Error fetching customers:',
-                error
-            );
-
-            setInternalCustomers([]);
+            console.error('Error fetching customers:', error);
+            const localCusts = localDataStore.getCustomers();
+            setInternalCustomers(localCusts || []);
         }
     };
 
@@ -644,29 +632,18 @@ const AddVehicleModal = ({
     // FILTER CUSTOMERS
     // ==========================================
 
-    const filteredCustomers =
-        internalCustomers.filter(
-            (customer) => {
-
-                const customerName =
-
-                    customer.fullName ||
-
-                    `${customer.firstName || ''} ${customer.lastName || ''}`.trim();
-
-
-                return customerName
-
-                    .toLowerCase()
-
-                    .includes(
-
-                        searchQuery.toLowerCase()
-
-                    );
-
-            }
+    const filteredCustomers = internalCustomers.filter((customer) => {
+        if (!searchQuery) return true;
+        const customerName =
+            customer.fullName ||
+            customer.name ||
+            `${customer.firstName || ''} ${customer.lastName || ''}`.trim();
+        const phone = customer.phoneNumber || customer.phone || '';
+        return (
+            customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            phone.includes(searchQuery)
         );
+    });
 
 
     // ==========================================
@@ -785,47 +762,21 @@ const AddVehicleModal = ({
                                         </option>
 
 
-                                        {filteredCustomers.map(
+                                        {filteredCustomers.map((customer) => {
+                                            const customerId = customer._id || customer.id;
+                                            const name =
+                                                customer.fullName ||
+                                                customer.name ||
+                                                `${customer.firstName || ''} ${customer.lastName || ''}`.trim() ||
+                                                customer.email ||
+                                                'Customer';
 
-                                            (customer) => {
-
-
-                                                const customerId =
-
-                                                    customer._id ||
-
-                                                    customer.id;
-
-
-                                                return (
-
-                                                    <option
-
-                                                        key={
-                                                            customerId
-                                                        }
-
-                                                        value={
-                                                            customerId
-                                                        }
-
-                                                    >
-
-                                                        {
-
-                                                            customer.fullName ||
-
-                                                            `${customer.firstName || ''} ${customer.lastName || ''}`.trim()
-
-                                                        }
-
-                                                    </option>
-
-                                                );
-
-                                            }
-
-                                        )}
+                                            return (
+                                                <option key={customerId} value={customerId}>
+                                                    {name}{customer.phoneNumber ? ` (${customer.phoneNumber})` : ''}
+                                                </option>
+                                            );
+                                        })}
 
 
                                     </select>
