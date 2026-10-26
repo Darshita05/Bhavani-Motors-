@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
 
     console.log(`User ${userId} joined room`);
     console.log(socket.rooms);
-});
+  });
   console.log("Client Connected:", socket.id);
 
   socket.on("disconnect", () => {
@@ -98,11 +98,22 @@ connectDB();
 // ============================================
 
 // Enable CORS
+
+const allowedOrigins = [
+  "https://bhavani-motors-frontend1.vercel.app",
+  "https://bhavani-motors-frontend1-git-main-darshita-s-projects1.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "*",
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
   })
 );
+
 
 // Parse JSON Body
 app.use(express.json());
