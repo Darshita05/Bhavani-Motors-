@@ -61,32 +61,6 @@
       "createdAt": "2026-09-23T09:52:16.780Z",
       "updatedAt": "2026-09-23T09:52:16.780Z",
       "__v": 0
-    },
-    {
-      "_id": "6adb19dc2b3547ad1343d46f",
-      "email": "localstaff1792743900515@gmail.com",
-      "passwordHash": "$2b$12$LLP9/Lp3bHTYnBrydzIV7usgQ65p17m0kvqoMOX.BvnBjxbkmQING",
-      "name": "Local Test Staff",
-      "phone": "1234567890",
-      "role": "staff",
-      "designation": "Mechanic",
-      "isActive": true,
-      "createdAt": "2026-10-23T08:25:00.905Z",
-      "updatedAt": "2026-10-23T08:25:00.905Z",
-      "__v": 0
-    },
-    {
-      "_id": "6adb1c1d2b3547ad1343d470",
-      "email": "devstaff1792744477480@gmail.com",
-      "passwordHash": "$2b$12$0hZ9QCghuw53zx98sSPrWuuJEtUA1vbXO9gYttzXi2iR8swQsyT7m",
-      "name": "Dev Staff",
-      "phone": "9898989898",
-      "role": "staff",
-      "designation": "Technician",
-      "isActive": true,
-      "createdAt": "2026-10-23T08:34:37.860Z",
-      "updatedAt": "2026-10-23T08:34:37.860Z",
-      "__v": 0
     }
   ],
   "customers": [
@@ -176,6 +150,28 @@
       "address": "fghxdszse",
       "createdAt": "2026-08-12T10:23:19.166Z",
       "updatedAt": "2026-08-12T10:23:19.166Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9000000000000000000001",
+      "firstName": "Darshita",
+      "lastName": "Dhankecha",
+      "email": "23se02it070@ppsu.ac.in",
+      "phoneNumber": "9876543210",
+      "address": "Surat, Gujarat",
+      "createdAt": "2026-10-15T09:30:00.000Z",
+      "updatedAt": "2026-10-15T09:30:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9000000000000000000002",
+      "firstName": "Rohan",
+      "lastName": "Patel",
+      "email": "rohan.patel@gmail.com",
+      "phoneNumber": "9825012345",
+      "address": "Varachha, Surat",
+      "createdAt": "2026-10-20T11:00:00.000Z",
+      "updatedAt": "2026-10-20T11:00:00.000Z",
       "__v": 0
     }
   ],
@@ -269,6 +265,30 @@
       "customerId": "6a66d557778a2090ce666807",
       "createdAt": "2026-07-27T03:50:36.695Z",
       "updatedAt": "2026-07-27T03:50:36.695Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9000000000000000000011",
+      "registrationNo": "GJ05AB9988",
+      "make": "Hyundai",
+      "model": "Creta",
+      "fuelType": "Petrol",
+      "mileage": 18500,
+      "customerId": "6a9000000000000000000001",
+      "createdAt": "2026-10-15T09:35:00.000Z",
+      "updatedAt": "2026-10-15T09:35:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9000000000000000000012",
+      "registrationNo": "GJ05CD4455",
+      "make": "Tata",
+      "model": "Harrier",
+      "fuelType": "Diesel",
+      "mileage": 24000,
+      "customerId": "6a9000000000000000000002",
+      "createdAt": "2026-10-20T11:05:00.000Z",
+      "updatedAt": "2026-10-20T11:05:00.000Z",
       "__v": 0
     }
   ],
@@ -408,95 +428,59 @@
       "createdAt": "2026-07-27T03:50:36.708Z",
       "updatedAt": "2026-07-27T03:50:36.708Z",
       "__v": 0
-    }
-  ],
-  "items": [
+    },
     {
-      "_id": "6a59bfebdf23cc675ad0e3a1",
-      "itemName": "Engine Oil",
-      "itemDetails": "a",
-      "createdAt": "2026-07-17T05:38:51.935Z",
-      "updatedAt": "2026-07-20T05:10:12.611Z",
+      "_id": "6a9000000000000000000021",
+      "description": "Complete Engine Service & Oil Change",
+      "cost": 18500,
+      "collectedCost": 18500,
+      "serviceDate": "2026-10-18T10:00:00.000Z",
+      "days": 10,
+      "dueDate": "2026-10-28T10:00:00.000Z",
+      "invoiceAmount": 18500,
+      "invoiceNumber": "INV-101801",
+      "mileage": 18500,
+      "carId": "6a9000000000000000000011",
+      "customerId": "6a9000000000000000000001",
+      "reminderSent": false,
+      "createdAt": "2026-10-18T10:00:00.000Z",
+      "updatedAt": "2026-10-18T10:00:00.000Z",
       "__v": 0
     },
     {
-      "_id": "6a59c007df23cc675ad0e3a2",
-      "itemName": "Oil",
-      "itemDetails": "a",
-      "createdAt": "2026-07-17T05:39:19.918Z",
-      "updatedAt": "2026-07-20T05:10:02.373Z",
+      "_id": "6a9000000000000000000022",
+      "description": "Brake Pad Replacement & Wheel Alignment",
+      "cost": 15000,
+      "collectedCost": 10000,
+      "serviceDate": "2026-10-22T14:30:00.000Z",
+      "days": 7,
+      "dueDate": "2026-10-29T14:30:00.000Z",
+      "invoiceAmount": 15000,
+      "invoiceNumber": "INV-102202",
+      "mileage": 24000,
+      "carId": "6a9000000000000000000012",
+      "customerId": "6a9000000000000000000002",
+      "reminderSent": false,
+      "createdAt": "2026-10-22T14:30:00.000Z",
+      "updatedAt": "2026-10-22T14:30:00.000Z",
       "__v": 0
     },
     {
-      "_id": "6a5dad33d3d183e6063c32a7",
-      "itemName": "Panchar",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:08:03.652Z",
-      "updatedAt": "2026-07-20T05:08:03.652Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dadbad3d183e6063c32a8",
-      "itemName": "Cember Bolt",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:10:18.533Z",
-      "updatedAt": "2026-07-20T05:10:18.533Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dadc7d3d183e6063c32a9",
-      "itemName": "Intercooler Pipe",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:10:31.614Z",
-      "updatedAt": "2026-07-20T05:10:31.614Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dadd1d3d183e6063c32aa",
-      "itemName": "AC Pipe",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:10:41.861Z",
-      "updatedAt": "2026-07-20T05:10:41.861Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5daddcd3d183e6063c32ab",
-      "itemName": "Taiming tesaner",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:10:52.648Z",
-      "updatedAt": "2026-07-20T05:10:52.648Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dade6d3d183e6063c32ac",
-      "itemName": "Taiming belt",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:11:02.010Z",
-      "updatedAt": "2026-07-20T05:11:02.010Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dadf1d3d183e6063c32ad",
-      "itemName": "RR LH Door lach",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:11:13.933Z",
-      "updatedAt": "2026-07-20T05:11:13.933Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a5dadffd3d183e6063c32ae",
-      "itemName": "Leth work",
-      "itemDetails": "a",
-      "createdAt": "2026-07-20T05:11:27.022Z",
-      "updatedAt": "2026-07-20T05:11:27.022Z",
-      "__v": 0
-    },
-    {
-      "_id": "6a6074450ccf56a52fbb1a4d",
-      "itemName": "Engine",
-      "itemDetails": "a",
-      "createdAt": "2026-07-22T07:41:57.902Z",
-      "updatedAt": "2026-07-22T07:41:57.902Z",
+      "_id": "6a9000000000000000000023",
+      "description": "AC Gas Refill & Electrical Diagnostics",
+      "cost": 12000,
+      "collectedCost": 5000,
+      "serviceDate": "2026-10-25T11:15:00.000Z",
+      "days": 5,
+      "dueDate": "2026-10-30T11:15:00.000Z",
+      "invoiceAmount": 12000,
+      "invoiceNumber": "INV-102503",
+      "mileage": 6200,
+      "carId": "6a5db939d3d183e6063c32b1",
+      "customerId": "6a5db8e8d3d183e6063c32b0",
+      "reminderSent": false,
+      "createdAt": "2026-10-25T11:15:00.000Z",
+      "updatedAt": "2026-10-25T11:15:00.000Z",
       "__v": 0
     }
   ],
@@ -796,6 +780,96 @@
       "repairNotes": [],
       "createdAt": "2026-07-27T03:50:36.761Z",
       "updatedAt": "2026-09-23T10:32:02.865Z",
+      "__v": 0
+    }
+  ],
+  "items": [
+    {
+      "_id": "6a59bfebdf23cc675ad0e3a1",
+      "itemName": "Engine Oil",
+      "itemDetails": "a",
+      "createdAt": "2026-07-17T05:38:51.935Z",
+      "updatedAt": "2026-07-20T05:10:12.611Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a59c007df23cc675ad0e3a2",
+      "itemName": "Oil",
+      "itemDetails": "a",
+      "createdAt": "2026-07-17T05:39:19.918Z",
+      "updatedAt": "2026-07-20T05:10:02.373Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dad33d3d183e6063c32a7",
+      "itemName": "Panchar",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:08:03.652Z",
+      "updatedAt": "2026-07-20T05:08:03.652Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dadbad3d183e6063c32a8",
+      "itemName": "Cember Bolt",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:10:18.533Z",
+      "updatedAt": "2026-07-20T05:10:18.533Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dadc7d3d183e6063c32a9",
+      "itemName": "Intercooler Pipe",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:10:31.614Z",
+      "updatedAt": "2026-07-20T05:10:31.614Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dadd1d3d183e6063c32aa",
+      "itemName": "AC Pipe",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:10:41.861Z",
+      "updatedAt": "2026-07-20T05:10:41.861Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5daddcd3d183e6063c32ab",
+      "itemName": "Taiming tesaner",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:10:52.648Z",
+      "updatedAt": "2026-07-20T05:10:52.648Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dade6d3d183e6063c32ac",
+      "itemName": "Taiming belt",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:11:02.010Z",
+      "updatedAt": "2026-07-20T05:11:02.010Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dadf1d3d183e6063c32ad",
+      "itemName": "RR LH Door lach",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:11:13.933Z",
+      "updatedAt": "2026-07-20T05:11:13.933Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5dadffd3d183e6063c32ae",
+      "itemName": "Leth work",
+      "itemDetails": "a",
+      "createdAt": "2026-07-20T05:11:27.022Z",
+      "updatedAt": "2026-07-20T05:11:27.022Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a6074450ccf56a52fbb1a4d",
+      "itemName": "Engine",
+      "itemDetails": "a",
+      "createdAt": "2026-07-22T07:41:57.902Z",
+      "updatedAt": "2026-07-22T07:41:57.902Z",
       "__v": 0
     }
   ]

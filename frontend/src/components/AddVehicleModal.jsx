@@ -129,7 +129,7 @@ const AddVehicleModal = ({
 
             customerName: customer
                 ? customer.fullName ||
-                  `${customer.firstName || ''} ${customer.lastName || ''}`.trim()
+                `${customer.firstName || ''} ${customer.lastName || ''}`.trim()
                 : ''
 
         }));
@@ -641,7 +641,7 @@ const AddVehicleModal = ({
         const phone = customer.phoneNumber || customer.phone || '';
         return (
             customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            phone.includes(searchQuery)
+            String(phone).includes(searchQuery)
         );
     });
 

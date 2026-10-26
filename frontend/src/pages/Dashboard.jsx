@@ -81,6 +81,20 @@ const Dashboard = () => {
             return;
           }
         }
+
+        // Smart auto-selection: If selected month has no data, pick latest month with data
+        if (selectedMonth !== 'All') {
+          const currentMonthRow = rows.find(r => r.month === selectedMonth);
+          const hasCurrentMonthData = currentMonthRow && ((currentMonthRow.totalAmount || 0) + (currentMonthRow.newCustomers || 0) > 0);
+          if (!hasCurrentMonthData) {
+            const monthsWithData = rows.filter(r => (r.totalAmount || 0) + (r.newCustomers || 0) > 0);
+            if (monthsWithData.length > 0) {
+              const latest = monthsWithData[monthsWithData.length - 1];
+              setSelectedMonth(latest.month);
+            }
+          }
+        }
+
         setMonthlyData(rows);
       } catch (err) {
         console.error('Monthly stats error:', err);
@@ -91,14 +105,22 @@ const Dashboard = () => {
 
   const chartData = Array.isArray(monthlyData) ? monthlyData : monthlyData?.data || [];
 
-   const monthRow = chartData.find(
-  r => r.month === selectedMonth
-) || {
-  totalAmount: 0,
-  collected: 0,
-  pending: 0,
-  newCustomers: 0
-};
+  const summaryStats = selectedMonth === 'All'
+    ? chartData.reduce(
+        (acc, r) => ({
+          totalAmount: acc.totalAmount + (Number(r.totalAmount) || 0),
+          collected: acc.collected + (Number(r.collected) || 0),
+          pending: acc.pending + (Number(r.pending) || 0),
+          newCustomers: acc.newCustomers + (Number(r.newCustomers) || 0)
+        }),
+        { totalAmount: 0, collected: 0, pending: 0, newCustomers: 0 }
+      )
+    : (chartData.find(r => r.month === selectedMonth) || {
+        totalAmount: 0,
+        collected: 0,
+        pending: 0,
+        newCustomers: 0
+      });
 
   const totalCustomersCount = customers?.totalCustomers ?? 0;
 const totalVehiclesCount = vehicles?.totalCars ?? 0;
@@ -198,6 +220,7 @@ const totalRevenueValue = customers?.totalRevenue ?? 0;
                   value={selectedMonth} 
                   onChange={e => setSelectedMonth(e.target.value)}
                 >
+                  <option value="All">All Months (Year)</option>
                   {MONTH_NAMES.map(m => <option key={m} value={m}>{m}</option>)}
                 </select>
                 <select 
@@ -213,19 +236,19 @@ const totalRevenueValue = customers?.totalRevenue ?? 0;
             <div className="cards-grid">
               <div className="metric-card card-total">
                 <span className="metric-label">Total Amount</span>
-                <div className="metric-value">₹ {monthRow.totalAmount}</div>
+                <div className="metric-value">₹ {Number(summaryStats.totalAmount || 0).toLocaleString('en-IN')}</div>
               </div>
               <div className="metric-card card-collected">
                 <span className="metric-label">Collected</span>
-                <div className="metric-value">₹ {monthRow.collected}</div>
+                <div className="metric-value">₹ {Number(summaryStats.collected || 0).toLocaleString('en-IN')}</div>
               </div>
               <div className="metric-card card-pending">
                 <span className="metric-label">Pending</span>
-                <div className="metric-value">₹ {monthRow.pending}</div>
+                <div className="metric-value">₹ {Number(summaryStats.pending || 0).toLocaleString('en-IN')}</div>
               </div>
               <div className="metric-card card-new">
                 <span className="metric-label">New Customers</span>
-                <div className="metric-value">{monthRow.newCustomers}</div>
+                <div className="metric-value">{Number(summaryStats.newCustomers || 0)}</div>
               </div>
             </div>
           </div>

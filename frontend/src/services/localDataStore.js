@@ -1,7 +1,7 @@
 import seedData from "../data/seedData.json";
 
 const STORAGE_KEYS = {
-  INITIALIZED: "bhavani_initialized_v6",
+  INITIALIZED: "bhavani_initialized_v7",
   CUSTOMERS: "bhavani_customers",
   CARS: "bhavani_cars",
   SERVICES: "bhavani_services",
@@ -29,7 +29,12 @@ export const initLocalDataStore = (force = false) => {
 const getList = (key, fallback = []) => {
   try {
     const raw = localStorage.getItem(key);
-    return raw ? JSON.parse(raw) : fallback;
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed) && parsed.length === 0 && Array.isArray(fallback) && fallback.length > 0) {
+      return fallback;
+    }
+    return parsed || fallback;
   } catch {
     return fallback;
   }
@@ -306,5 +311,36 @@ export const localDataStore = {
         phone: user.phone || user.phoneNumber,
       },
     };
+  },
+
+  getMonthlyStats: (year = 2026) => {
+    const services = localDataStore.getServices();
+    const customers = localDataStore.getCustomers();
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const data = months.map((month, idx) => {
+      const monthNum = idx;
+      const monthServices = services.filter((s) => {
+        const d = new Date(s.serviceDate || s.createdAt);
+        return d.getFullYear() === Number(year) && d.getMonth() === monthNum;
+      });
+      const monthCustomers = customers.filter((c) => {
+        const d = new Date(c.createdAt);
+        return d.getFullYear() === Number(year) && d.getMonth() === monthNum;
+      });
+      const totalAmount = monthServices.reduce((sum, s) => sum + Number(s.cost || 0), 0);
+      const collected = monthServices.reduce(
+        (sum, s) => sum + Number(s.collectedCost ?? s.collectedAmount ?? 0),
+        0
+      );
+      const pending = Math.max(0, totalAmount - collected);
+      return {
+        month,
+        totalAmount,
+        collected,
+        pending,
+        newCustomers: monthCustomers.length,
+      };
+    });
+    return { year: Number(year), data };
   },
 };

@@ -108,6 +108,11 @@ export const handleMockApiRequest = async (method, endpoint, payloadOrParams = {
     return { data: { service: service || {} } };
   }
 
+  if (cleanEndpoint.startsWith("/api/services/monthly-stats")) {
+    const yearParam = queryParams.get("year") || 2026;
+    return { data: localDataStore.getMonthlyStats(yearParam) };
+  }
+
   // ==========================================
   // JOB CARDS
   // ==========================================
