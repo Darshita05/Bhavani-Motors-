@@ -20,18 +20,21 @@ const BACKEND_URL =
     ? "http://localhost:5000"
     : "https://bhavani-motors-backend.vercel.app";
 
-const socket = BACKEND_URL
+const isVercel = Boolean(BACKEND_URL && BACKEND_URL.includes(".vercel.app"));
+
+const socket = BACKEND_URL && !isVercel
   ? io(BACKEND_URL, {
-      transports: ["polling", "websocket"],
-      reconnectionAttempts: 3,
+      transports: ["websocket", "polling"],
+      reconnectionAttempts: 2,
       reconnectionDelay: 5000,
-      timeout: 8000,
+      timeout: 5000,
       autoConnect: true,
     })
   : {
       on: () => {},
       off: () => {},
       emit: () => {},
+      connected: false,
     };
 
 if (socket && typeof socket.on === "function") {
