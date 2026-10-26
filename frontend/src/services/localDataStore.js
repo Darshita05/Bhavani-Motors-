@@ -1,7 +1,7 @@
 import seedData from "../data/seedData.json";
 
 const STORAGE_KEYS = {
-  INITIALIZED: "bhavani_initialized_v5",
+  INITIALIZED: "bhavani_initialized_v6",
   CUSTOMERS: "bhavani_customers",
   CARS: "bhavani_cars",
   SERVICES: "bhavani_services",
